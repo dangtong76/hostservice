@@ -41,6 +41,8 @@ jobs:
           repository: 'dangtong76/hostservice-cd'
           token: ${{ secrets.GITHUB_TOKEN }}
           path: 'main'
-      - name: 2.Change Docker Tag
-        run : "sed 's/image: dangtong\/node-app:.*/image: dangtong\/node-app:${{ github.sha }}/g' -f hostservice-dp.yaml"
+      - name: 2. Change Docker Tag
+        run: sed -i "s/image:\sdangtong\/node-app:.*/image:\sdangtong\/node-app:${{ github.sha }}/g" hostservice-dp.yaml
+      # - name: 2.Change Docker Tag
+      #   run : sed 's/image: dangtong\/node-app:.*/image: dangtong\/node-app:${{ github.sha }}/g' -f hostservice-dp.yaml
         
