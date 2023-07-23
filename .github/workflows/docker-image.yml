@@ -2,9 +2,9 @@ name: Host Service CI
 on:
   push:
     branches:
-      - main
+      - 'main'
     paths:
-      - '.'
+      - '. *'
 jobs:
   build:
     runs-on: ubuntu-latest
