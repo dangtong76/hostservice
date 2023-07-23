@@ -16,7 +16,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - run: docker push dangtong/hostservice
-  update-yaml:
+  updateYaml:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,3 @@ jobs:
           repository: 'dangtong76/hostservice-cd'
           token: ${{ secrets.GITHUB_TOKEN }}
           path: 'main'
-      - run: sudo apt-get install git
-      - run: git config user.name dangtong76
-      - run: git config user.email dangtong@gmail.com
-      - run: git config github.token ${{ secrets.GITHUB_TOKEN }}
