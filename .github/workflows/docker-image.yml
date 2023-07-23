@@ -23,14 +23,6 @@ jobs:
       with: 
         push: true
         tags: dangtong/hostservice:${{ github.sha }}
-    # steps:
-    #   - uses: actions/checkout@v3
-    #   - run: docker build -t dangtong/hostservice .
-    #   - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    #     env:
-    #       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-    #       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-    #   - run: docker push dangtong/hostservice
   updateYaml:
     runs-on: ubuntu-latest
     needs: buildImage
@@ -43,7 +35,8 @@ jobs:
           # path: 'main'
       - name: 2. Change Docker Tag
         run: |
-          sed -i "s/image:\sdangtong\/node-app:.*/image:\sdangtong\/node-app:${{ github.sha }}/g" hostservice-dp.yaml
+          sed -i "s/image: dangtong\/node-app:.*/image: dangtong\/node-app:${{ github.sha }}/g" test.yaml
+          # sed -i "s/image:\sdangtong\/node-app:.*/image:\sdangtong\/node-app:${{ github.sha }}/g" hostservice-dp.yaml
           git config --global user.email "dangtong@gmail.com"
           git config --global user.name "dangtong76"
           git commit -am "triggered by github action"
