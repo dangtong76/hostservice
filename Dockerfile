@@ -1,5 +1,5 @@
 FROM node:7
 
-ADD app.js /app.js
+ADD hostservice.js /app.js
 
-ENTRYPOINT ["node", "app.js"]
+ENTRYPOINT ["node", "hostservice.js"]
