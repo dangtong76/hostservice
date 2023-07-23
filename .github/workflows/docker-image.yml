@@ -44,6 +44,8 @@ jobs:
       - name: 2. Change Docker Tag
         run: |
           sed -i "s/image:\sdangtong\/node-app:.*/image:\sdangtong\/node-app:${{ github.sha }}/g" hostservice-dp.yaml
+          git config --global user.email "dangtong@gmail.com"
+          git config --global user.name "dangtong76"
           git commit -am "triggered by github action"
           git push origin main
 
