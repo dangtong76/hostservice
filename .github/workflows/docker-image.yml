@@ -48,7 +48,3 @@ jobs:
           git config --global user.name "dangtong76"
           git commit -am "triggered by github action"
           git push origin main
-
-      # - name: 2.Change Docker Tag
-      #   run : sed 's/image: dangtong\/node-app:.*/image: dangtong\/node-app:${{ github.sha }}/g' -f hostservice-dp.yaml
-        
